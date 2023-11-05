@@ -118,8 +118,8 @@ const Register = () => {
               </div>
               <div className="divider w-3/4 mx-auto">Or</div>
             </form>
-            <div onClick={handleGoogleRegister} className="form-control">
-              <button className="btn btn-outline">
+            <div onClick={handleGoogleRegister} className="form-control ">
+              <button className="btn btn-outline text-stBlack">
                 <CgGoogle />
                 Register With Google
               </button>

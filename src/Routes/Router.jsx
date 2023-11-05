@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Register from "../Pages/Auth/Register";
 import Login from "../Pages/Auth/Login";
 import AssignmentForm from "../Components/AssignmentForm";
+import AllAssignment from "../Pages/Assignment/AllAssignment";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/all-assignment",
+        element: <AllAssignment></AllAssignment>,
+        loader: () => fetch("/ass.json"),
       },
     ],
   },

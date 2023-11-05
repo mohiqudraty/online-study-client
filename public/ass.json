@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Essay on Climate Change",
+    "description": "Write a 1000-word essay discussing the impacts of climate change and potential solutions.",
+    "marks": 100,
+    "photo": "https://i.ibb.co/j6KWpr4/Climate.jpg",
+    "level": "easy",
+    "dueDate": "2023-12-01"
+  },
+  {
+    "title": "Math Problems - Chapter 3",
+    "description": "Solve problems 1 to 20 from chapter 3 of the textbook.",
+    "marks": 75,
+    "photo": "https://i.ibb.co/xjYpWWD/math.jpg",
+    "level": "medium",
+    "dueDate": "2023-12-15"
+  },
+  {
+    "title": "Programming Assignment",
+    "description": "Write a Python program that calculates prime numbers up to 1000.",
+    "marks": 150,
+    "photo": "https://i.ibb.co/TqGr26G/pp.jpg",
+    "level": "hard",
+    "dueDate": "2023-12-31"
+  },
+  {
+    "title": "Scientific Presentation",
+    "description": "Create a presentation on the process of photosynthesis in plants.",
+    "marks": 90,
+    "photo": "https://i.ibb.co/tPY8QMQ/Scientific.jpg",
+    "level": "medium",
+    "dueDate": "2023-12-10"
+  },
+  {
+    "title": "Advanced Math Problems",
+    "description": "Solve advanced mathematical problems involving calculus and linear algebra.",
+    "marks": 120,
+    "photo": "https://i.ibb.co/QfZXX3L/admath.jpg",
+    "level": "hard",
+    "dueDate": "2023-12-05"
+  },
+  {
+    "title": "Historical Event Report",
+    "description": "Write a report on the causes and consequences of World War II.",
+    "marks": 80,
+    "photo": "https://i.ibb.co/VCjJvGY/histo.jpg",
+    "level": "easy",
+    "dueDate": "2023-12-20"
+  },
+  {
+    "title": "Python Coding Challenge",
+    "description": "Solve a series of coding challenges using Python within a time limit.",
+    "marks": 110,
+    "photo": "https://i.ibb.co/w0HmJYD/py.jpg",
+    "level": "medium",
+    "dueDate": "2023-12-12"
+  },
+  {
+    "title": "Social Issue Video",
+    "description": "Create a 5-minute video discussing a relevant social issue in your community.",
+    "marks": 95,
+    "photo": "https://i.ibb.co/DrC5KQh/social.jpg",
+    "level": "easy",
+    "dueDate": "2023-12-18"
+  },
+  {
+    "title": "Physics Problems",
+    "description": "Solve physics problems related to motion and energy conservation.",
+    "marks": 130,
+    "photo": "https://i.ibb.co/CQ9PPwc/phy.jpg",
+    "level": "hard",
+    "dueDate": "2023-12-08"
+  },
+  {
+    "title": "Literature Review",
+    "description": "Write a literature review on the novel 'To Kill a Mockingbird' by Harper Lee.",
+    "marks": 85,
+    "photo": "https://i.ibb.co/zmH3t2d/Literature.jpg",
+    "level": "medium",
+    "dueDate": "2023-12-25"
+  },
+  {
+    "title": "Chemistry Problems",
+    "description": "Solve chemistry problems related to chemical reactions and stoichiometry.",
+    "marks": 140,
+    "photo": "https://i.ibb.co/yghKgQ4/Chemistry.jpg",
+    "level": "hard",
+    "dueDate": "2023-12-22"
+  },
+  {
+    "title": "Environmental Poster",
+    "description": "Create an informative poster on the impact of plastic pollution on marine life.",
+    "marks": 75,
+    "photo": "https://i.ibb.co/hH3mPqR/Environmental.jpg",
+    "level": "easy",
+    "dueDate": "2023-12-15"
+  }
+]
