@@ -5,6 +5,9 @@ import Register from "../Pages/Auth/Register";
 import Login from "../Pages/Auth/Login";
 import AssignmentForm from "../Components/AssignmentForm";
 import AllAssignment from "../Pages/Assignment/AllAssignment";
+import CreateAssignment from "../Pages/Assignment/CreateAssignment";
+import UpdateAssignment from "../Pages/Assignment/UpdateAssignment";
+import ViewAssignment from "../Pages/Assignment/ViewAssignment";
 
 const router = createBrowserRouter([
   {
@@ -12,13 +15,25 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home></Home>,
       },
       {
         path: "/all-assignment",
         element: <AllAssignment></AllAssignment>,
         loader: () => fetch("/ass.json"),
+      },
+      {
+        path: "/create-assignment",
+        element: <CreateAssignment></CreateAssignment>,
+      },
+      {
+        path: "/view-assignment",
+        element: <ViewAssignment></ViewAssignment>,
+      },
+      {
+        path: "/update-assignment",
+        element: <UpdateAssignment></UpdateAssignment>,
       },
     ],
   },

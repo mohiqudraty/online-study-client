@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CgGoogle } from "react-icons/cg";
 import useAuth from "../../Hooks/useAuth";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser, registerWithGoogle } = useAuth();
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -34,6 +35,7 @@ const Register = () => {
     registerWithGoogle()
       .then((result) => {
         console.log(result.user);
+        navigate("/");
       })
       .catch((err) => console.log(err.message));
   };

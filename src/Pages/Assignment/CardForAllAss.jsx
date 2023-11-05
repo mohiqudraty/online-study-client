@@ -1,5 +1,6 @@
 import { AiOutlineEye } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs/";
+import { Link } from "react-router-dom";
 
 const CardForAllAss = ({ a }) => {
   const { title, description, marks, photo, level, dueDate } = a || {};
@@ -30,12 +31,17 @@ const CardForAllAss = ({ a }) => {
         </div>
 
         <div className="flex justify-between">
-          <button className="btn bg-stPrimary text-white hover:text-stBlack">
-            View <AiOutlineEye />
-          </button>
-          <button className="btn bg-stSecondary text-white hover:text-stBlack">
-            <BsPencilSquare /> Update
-          </button>
+          <Link to={"/view-assignment"}>
+            <button className="btn bg-stPrimary text-white hover:text-stBlack">
+              View <AiOutlineEye />
+            </button>
+          </Link>
+
+          <Link to={"/update-assignment"}>
+            <button className="btn bg-stSecondary text-white hover:text-stBlack">
+              <BsPencilSquare /> Update
+            </button>
+          </Link>
         </div>
       </div>
     </div>
