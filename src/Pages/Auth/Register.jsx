@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { CgGoogle } from "react-icons/cg";
 import useAuth from "../../Hooks/useAuth";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { createUser } = useAuth();
+  const { createUser, registerWithGoogle } = useAuth();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -16,10 +17,25 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        const registeredUser = result.user;
+        updateProfile(registeredUser, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then()
+          .catch((err) => console.log(err.message));
       })
       .catch((err) => {
         console.log(err.message);
       });
+  };
+
+  const handleGoogleRegister = () => {
+    registerWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((err) => console.log(err.message));
   };
 
   return (
@@ -102,7 +118,7 @@ const Register = () => {
               </div>
               <div className="divider w-3/4 mx-auto">Or</div>
             </form>
-            <div className="form-control">
+            <div onClick={handleGoogleRegister} className="form-control">
               <button className="btn btn-outline">
                 <CgGoogle />
                 Register With Google
