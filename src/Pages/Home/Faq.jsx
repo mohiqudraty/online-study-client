@@ -1,14 +1,11 @@
-const Faq = () => {
+const Faq = ({ faq }) => {
+  const { question, answer } = faq || {};
   return (
-    <div className="container mx-auto">
-      <div className="collapse collapse-plus bg-base-200">
-        <input type="checkbox" />
-        <div className="collapse-title text-xl font-medium">
-          Click me to show/hide content
-        </div>
-        <div className="collapse-content">
-          <p>hello</p>
-        </div>
+    <div className="collapse collapse-plus bg-base-200 border-x-4 border-stSecondary">
+      <input type="checkbox" />
+      <div className="collapse-title text-xl font-medium">{question}</div>
+      <div className="collapse-content">
+        <p>{answer}</p>
       </div>
     </div>
   );

@@ -202,7 +202,7 @@ const Header = () => {
         )}
         {user && (
           <>
-            <div onClick={toggleDropdown}>
+            <div onClick={toggleDropdown} className="cursor-pointer">
               {user?.photoURL ? (
                 <img
                   className="w-10 h-10 p-1 mx-1 hover:ring-stPrimary rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
@@ -221,7 +221,7 @@ const Header = () => {
             className={
               !isDropdownOpen
                 ? "hidden"
-                : " flex absolute z-50 top-20 right-0  bg-white duration-500 shadow-2xl"
+                : " flex absolute z-50 top-20 right-0  bg-white duration-500 shadow-2xl border-2 border-stGray"
             }
             id="user-dropdown"
           >

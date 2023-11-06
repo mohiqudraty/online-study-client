@@ -9,11 +9,13 @@ import CreateAssignment from "../Pages/Assignment/CreateAssignment";
 import UpdateAssignment from "../Pages/Assignment/UpdateAssignment";
 import ViewAssignment from "../Pages/Assignment/ViewAssignment";
 import PrivetRoute from "./PrivetRoute";
+import Error from "../Components/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Error></Error>,
     children: [
       {
         index: true,
