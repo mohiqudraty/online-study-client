@@ -1,6 +1,26 @@
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
+  const { loginUser } = useAuth();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const toastId = toast.loading("Loading...");
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Login Success!", { id: toastId });
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
@@ -12,7 +32,7 @@ const Login = () => {
             <h1 className="text-3xl text-center md:text-5xl font-bold text-stBlack">
               Login Now!
             </h1>
-            <form>
+            <form onSubmit={handleLogin}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -31,6 +51,7 @@ const Login = () => {
                 </label>
                 <input
                   type="password"
+                  name="password"
                   placeholder="Password"
                   className="input input-success "
                   required
@@ -51,7 +72,10 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-stSecondary text-white hover:text-stBlack">
+                <button
+                  type="submit"
+                  className="btn bg-stSecondary text-white hover:text-stBlack"
+                >
                   Login
                 </button>
               </div>

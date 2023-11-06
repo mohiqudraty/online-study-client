@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { CgGoogle } from "react-icons/cg";
 import useAuth from "../../Hooks/useAuth";
 import { updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { createUser, registerWithGoogle } = useAuth();
@@ -9,6 +10,7 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
+    const toastId = toast.loading("Loading...");
     const form = e.target;
     const name = form.name.value;
     const photo = form.photo.value;
@@ -23,7 +25,10 @@ const Register = () => {
           displayName: name,
           photoURL: photo,
         })
-          .then()
+          .then(() => {
+            toast.success("User Registration Success", { id: toastId });
+            navigate("/");
+          })
           .catch((err) => console.log(err.message));
       })
       .catch((err) => {

@@ -2,8 +2,8 @@ import AssignmentForm from "../../Components/AssignmentForm";
 
 const CreateAssignment = () => {
   return (
-    <div>
-      <div className="text-center text-3xl md:text-4xl lg:5xl mt-5">
+    <div className="lg:mb-20">
+      <div className="text-center text-3xl md:text-4xl lg:5xl mt-5 ">
         <span className="border-b-4 font-bold text-stBlack">
           Create an Assignment
         </span>

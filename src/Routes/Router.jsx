@@ -8,6 +8,7 @@ import AllAssignment from "../Pages/Assignment/AllAssignment";
 import CreateAssignment from "../Pages/Assignment/CreateAssignment";
 import UpdateAssignment from "../Pages/Assignment/UpdateAssignment";
 import ViewAssignment from "../Pages/Assignment/ViewAssignment";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -19,20 +20,23 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/all-assignment",
-        element: <AllAssignment></AllAssignment>,
-        loader: () => fetch("/ass.json"),
+        path: "all-assignment",
+        element: (
+          <PrivetRoute>
+            <AllAssignment></AllAssignment>
+          </PrivetRoute>
+        ),
       },
       {
-        path: "/create-assignment",
+        path: "create-assignment",
         element: <CreateAssignment></CreateAssignment>,
       },
       {
-        path: "/view-assignment",
+        path: "view-assignment",
         element: <ViewAssignment></ViewAssignment>,
       },
       {
-        path: "/update-assignment",
+        path: "update-assignment",
         element: <UpdateAssignment></UpdateAssignment>,
       },
     ],

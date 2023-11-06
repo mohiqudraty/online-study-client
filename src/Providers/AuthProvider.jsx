@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  //  register with google
+  //  register with google------------------
   const registerWithGoogle = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
@@ -33,10 +33,12 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  // logout user----------------
   const logoutUser = () => {
     return signOut(auth);
   };
 
+  // auth state observer------------------
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("observe", currentUser);
