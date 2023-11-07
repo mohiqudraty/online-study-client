@@ -11,6 +11,8 @@ import ViewAssignment from "../Pages/Assignment/ViewAssignment";
 
 import Error from "../Components/Error";
 import PrivetRoute from "./PrivetRoute";
+import Submitted from "../Pages/Assignment/Submitted";
+import GiveMark from "../Pages/Assignment/GiveMark";
 
 const router = createBrowserRouter([
   {
@@ -36,15 +38,41 @@ const router = createBrowserRouter([
       },
       {
         path: "view-assignment/:_id",
-        element: <ViewAssignment></ViewAssignment>,
+        element: (
+          <PrivetRoute>
+            <ViewAssignment></ViewAssignment>
+          </PrivetRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/api/v1/single-assignment/${params._id}`),
       },
       {
         path: "update-assignment/:_id",
-        element: <UpdateAssignment></UpdateAssignment>,
+        element: (
+          <PrivetRoute>
+            <UpdateAssignment></UpdateAssignment>
+          </PrivetRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/api/v1/single-assignment/${params._id}`),
+      },
+      {
+        path: "submitted-assignment",
+        element: (
+          <PrivetRoute>
+            <Submitted></Submitted>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "give-mark-assignment",
+        element: (
+          <PrivetRoute>
+            <GiveMark></GiveMark>
+          </PrivetRoute>
+        ),
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5000/api/v1/single-assignment/${params._id}`),
       },
     ],
   },

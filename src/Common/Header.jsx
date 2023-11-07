@@ -107,7 +107,7 @@ const Header = () => {
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "py-y px-3 rounded-md bg-stSecondary hover:bg-stPrimary "
+                      ? "py-2 px-3 rounded-md bg-stSecondary hover:bg-stPrimary text-white "
                       : "hover:bg-gray-500 p-2 rounded-md"
                   }
                   to={"/submitted-assignment"}
@@ -176,7 +176,7 @@ const Header = () => {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? "py-y px-3 font-semibold rounded-md bg-stSecondary hover:bg-stPrimary "
+                  ? "py-y px-3 font-semibold rounded-md bg-stSecondary hover:bg-stPrimary text-white "
                   : "hover:bg-gray-500 p-2 font-semibold rounded-md"
               }
               to={"/submitted-assignment"}
@@ -221,7 +221,7 @@ const Header = () => {
             className={
               !isDropdownOpen
                 ? "hidden"
-                : " flex absolute z-50 top-20 right-0  bg-white duration-500 shadow-2xl border-2 border-stGray"
+                : " flex absolute z-50 top-20 right-1  bg-white duration-500 shadow-2xl border-2 border-stGray"
             }
             id="user-dropdown"
           >
