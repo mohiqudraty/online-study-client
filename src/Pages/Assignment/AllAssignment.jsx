@@ -1,22 +1,35 @@
 import CardForAllAss from "./CardForAllAss";
 // import useAxios from "../../Hooks/useAxios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-
+import Loader from "../../Components/Loader/Loader";
+import toast from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
 const AllAssignment = () => {
   // const axios = useAxios();
-  const [assignments, setAssignments] = useState([]);
+  // const [assignments, setAssignments] = useState([]);
   // console.log(assignments);
   const [level, setLevel] = useState("");
   console.log(level);
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/v1/all-assignment")
-      .then((res) => {
-        setAssignments(res.data);
-      })
-      .catch((err) => console.log(err.message));
-  }, []);
+  // fetch all assignment-----------
+  const url = "http://localhost:5000/api/v1/all-assignment";
+  const {
+    data: assignments,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["all-assignment"],
+    queryFn: async () => {
+      const response = await axios.get(url);
+      const data = await response.data;
+      return data;
+    },
+    retry: 3,
+  });
+
+  if (isLoading) return <Loader></Loader>;
+  if (isError) return toast.error(error.message);
 
   return (
     <div>

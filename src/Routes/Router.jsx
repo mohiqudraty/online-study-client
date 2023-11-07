@@ -8,8 +8,9 @@ import AllAssignment from "../Pages/Assignment/AllAssignment";
 import CreateAssignment from "../Pages/Assignment/CreateAssignment";
 import UpdateAssignment from "../Pages/Assignment/UpdateAssignment";
 import ViewAssignment from "../Pages/Assignment/ViewAssignment";
-import PrivetRoute from "./PrivetRoute";
+
 import Error from "../Components/Error";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -23,15 +24,15 @@ const router = createBrowserRouter([
       },
       {
         path: "all-assignment",
-        element: (
-          <PrivetRoute>
-            <AllAssignment></AllAssignment>
-          </PrivetRoute>
-        ),
+        element: <AllAssignment></AllAssignment>,
       },
       {
         path: "create-assignment",
-        element: <CreateAssignment></CreateAssignment>,
+        element: (
+          <PrivetRoute>
+            <CreateAssignment></CreateAssignment>
+          </PrivetRoute>
+        ),
       },
       {
         path: "view-assignment",

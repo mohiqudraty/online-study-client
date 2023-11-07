@@ -33,7 +33,7 @@ const Home = () => {
       {/* banner section ---------- */}
       <Banner></Banner>
       {/* features section -------- */}
-      <div className="my-12">
+      <div className="my-12 p-3">
         <div className="text-center">
           <h2 className="text-3xl lg:text-5xl font-bold text-stBlack my-2">
             Explore Our Key Features
@@ -45,7 +45,7 @@ const Home = () => {
             support, our platform has you covered.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl p-3 mx-auto">
           {features.map((feature) => (
             <Features key={feature._id} feature={feature}></Features>
           ))}

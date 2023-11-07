@@ -2,25 +2,25 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const AssignmentForm = () => {
+const AssignmentForm = ({ handleCreateAssignment }) => {
   const [date, setDate] = useState(new Date());
   // title,  description,  marks,  thumbnail Image  URL,  assignment  difficulty  level(easy,  medium,  hard)  [YOU MAY  USE  DROPDOWN  SELECT  INPUT  FIELD],  and  due  date [use  this  package  for  selecting  date
 
-  const handle = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const title = form.title.value;
-    const photo = form.photo.value;
-    const description = form.description.value;
-    const marks = form.marks.value;
-    const level = form.level.value;
-    // const date = form.date.value;
-    console.log(title, photo, description, marks, level, date);
-  };
+  // const handleCreateAssignment = (e) => {
+  //   e.preventDefault();
+  //   const form = e.target;
+  //   const title = form.title.value;
+  //   const photo = form.photo.value;
+  //   const description = form.description.value;
+  //   const marks = form.marks.value;
+  //   const level = form.level.value;
+  //   // const date = form.date.value;
+  //   console.log(title, photo, description, marks, level, date);
+  // };
 
   return (
     <div className="container mx-auto mt-10">
-      <form onSubmit={handle}>
+      <form onSubmit={handleCreateAssignment}>
         <div className="grid md:grid-cols-2 md:gap-6 p-5">
           {/* Title */}
           <div className="relative z-0 w-full mb-6 group">
