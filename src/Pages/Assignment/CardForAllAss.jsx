@@ -2,8 +2,8 @@ import { AiOutlineEye } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs/";
 import { Link } from "react-router-dom";
 
-const CardForAllAss = ({ a }) => {
-  const { title, description, marks, photo, level, dueDate } = a || {};
+const CardForAllAss = ({ assignment }) => {
+  const { title, description, marks, photo, level, dueDate } = assignment || {};
   return (
     <div className="card  bg-base-100 shadow-xl">
       <figure>
