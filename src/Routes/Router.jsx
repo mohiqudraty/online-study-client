@@ -38,11 +38,13 @@ const router = createBrowserRouter([
         path: "view-assignment/:_id",
         element: <ViewAssignment></ViewAssignment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/api/v1/view-assignment/${params._id}`),
+          fetch(`http://localhost:5000/api/v1/single-assignment/${params._id}`),
       },
       {
-        path: "update-assignment",
+        path: "update-assignment/:_id",
         element: <UpdateAssignment></UpdateAssignment>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/api/v1/single-assignment/${params._id}`),
       },
     ],
   },

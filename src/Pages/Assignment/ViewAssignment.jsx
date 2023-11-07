@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 const ViewAssignment = () => {
   const assignment = useLoaderData();
-  const { _id, title, description, marks, photo, level, dueDate, user } =
+  const { title, description, marks, photo, level, dueDate, user } =
     assignment || {};
   //  Convert date from ISO 8601 to Date object using Moment.js
   assignment.date = moment(dueDate).toDate().toDateString();
@@ -29,7 +29,9 @@ const ViewAssignment = () => {
             {level}
           </p>{" "}
           <p>{description}</p>
-          <span className="font-semibold">Creator Email: {user.email}</span>
+          <span className="font-semibold">
+            Creator Email: {user && user.email}
+          </span>
         </div>
         <div className="flex justify-between w-full">
           <span className="font-semibold">Marks: {marks}</span>
@@ -49,14 +51,14 @@ const ViewAssignment = () => {
             id="my_modal_5"
             className="modal modal-bottom sm:modal-middle"
           >
-            <form>
-              <div className="modal-box text-center">
+            <form method="dialog">
+              <div className="modal-box lg:w-96 text-center">
                 <h3 className="font-bold text-lg my-3">Assignment Pdf Link</h3>
-                <input
+                <textarea
                   type="text"
                   name="pdf"
                   placeholder="Put Your Pdf Link"
-                  className="input input-success "
+                  className="textarea textarea-success w-full "
                   required
                 />
                 <h3 className="font-bold text-lg my-3">Quick Note</h3>
@@ -64,22 +66,20 @@ const ViewAssignment = () => {
                   type="text"
                   name="note"
                   placeholder="note something"
-                  className="textarea textarea-success "
+                  className="textarea textarea-success w-full "
                   required
                 />
-                <div className="modal-action">
-                  <div method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                    <button
-                      type="submit"
-                      className="btn  bg-stSecondary  text-white hover:bg-stPrimary"
-                      onClick={() =>
-                        document.getElementById("my_modal_5").showModal()
-                      }
-                    >
-                      Take Assignment
-                    </button>
-                  </div>
+                <div className=" my-5">
+                  {/* if there is a button in form, it will close the modal */}
+                  <button
+                    type="submit"
+                    className="btn   bg-stSecondary  text-white hover:bg-stPrimary"
+                    onClick={() =>
+                      document.getElementById("my_modal_5").showModal()
+                    }
+                  >
+                    Take Assignment
+                  </button>
                 </div>
               </div>
             </form>

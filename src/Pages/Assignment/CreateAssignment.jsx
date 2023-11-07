@@ -31,7 +31,7 @@ const CreateAssignment = () => {
     onSuccess: () => {
       toast.success("Assignment Creation Successful");
       queryClient.invalidateQueries("createAssignment");
-      navigate("/all-assignment");
+      // navigate("/all-assignment");
     },
     onError: (error) => {
       // An error happened!
@@ -186,7 +186,7 @@ const CreateAssignment = () => {
             </label>
           </div>
         </div>
-        <div className="text-center">
+        <div className="text-center px-5">
           <button
             type="submit"
             className="text-white bg-stSecondary hover:bg-stPrimary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-stPrimary dark:hover-bg-blue-700 dark:focus-ring-stPrimary"

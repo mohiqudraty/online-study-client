@@ -36,7 +36,7 @@ const CardForAllAss = ({ assignment }) => {
             </button>
           </Link>
 
-          <Link to={"/update-assignment"}>
+          <Link to={`/update-assignment/${_id}`}>
             <button className="btn bg-stSecondary text-white hover:text-stBlack">
               <BsPencilSquare /> Update
             </button>
