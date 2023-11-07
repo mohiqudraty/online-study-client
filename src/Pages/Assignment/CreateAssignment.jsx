@@ -6,10 +6,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../../Hooks/useAuth";
 import Loader from "../../Components/Loader/Loader";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 const CreateAssignment = () => {
   const [date, setDate] = useState(new Date());
+  const formattedDate = moment(date).toISOString(); // Format to ISO 8601 format
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const queryClient = useQueryClient();
   const {
@@ -27,6 +31,7 @@ const CreateAssignment = () => {
     onSuccess: () => {
       toast.success("Assignment Creation Successful");
       queryClient.invalidateQueries("createAssignment");
+      navigate("/all-assignment");
     },
     onError: (error) => {
       // An error happened!
@@ -49,8 +54,8 @@ const CreateAssignment = () => {
       description,
       marks,
       level,
-      date,
-      email: user.email,
+      dueDate: formattedDate,
+      user,
     };
     console.log(assignment);
     createAssignment(assignment);
@@ -150,9 +155,9 @@ const CreateAssignment = () => {
               id="level"
             >
               <option value=""></option>
-              <option value="Easy">Easy</option>
-              <option value="Medium">Medium</option>
-              <option value="Hard">Hard</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
             </select>
             <label
               htmlFor="level"
@@ -165,7 +170,9 @@ const CreateAssignment = () => {
           <div className="relative z-0 w-full mb-6 group">
             <div className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-stPrimary peer">
               <DatePicker
+                minDate={new Date()}
                 name="date"
+                dateFormat="dd/MM/yyyy"
                 className="outline-none"
                 selected={date}
                 onChange={(date) => setDate(date)}

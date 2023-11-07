@@ -8,17 +8,16 @@ import useAxios from "../../Hooks/useAxios";
 const AllAssignment = () => {
   const instance = useAxios();
   const [level, setLevel] = useState("Assignment difficulty");
-  console.log(level);
+
   const [assignmentsWithLevel, setAssignmentsWithLevel] = useState([]);
 
   // all assignment fetch by level------------
   const urlWithQuery = `/api/v1/all-assignment?level=${level}`;
   useEffect(() => {
     instance.get(urlWithQuery).then((res) => {
-      console.log(res.data);
       setAssignmentsWithLevel(res.data);
     });
-  }, [instance, urlWithQuery]);
+  }, [instance, urlWithQuery, level]);
 
   // start fetch all assignment-----------
   const url = "/api/v1/all-assignment";

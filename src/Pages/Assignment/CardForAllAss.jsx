@@ -3,11 +3,11 @@ import { BsPencilSquare } from "react-icons/bs/";
 import { Link } from "react-router-dom";
 
 const CardForAllAss = ({ assignment }) => {
-  const { title, description, marks, photo, level, dueDate } = assignment || {};
+  const { _id, title, description, marks, photo, level } = assignment || {};
   return (
     <div className="card  bg-base-100 shadow-xl">
       <figure>
-        <img className="h-72 w-full object-cover" src={photo} alt="Shoes" />
+        <img className="h-72 w-full object-cover" src={photo} alt={title} />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
@@ -26,12 +26,11 @@ const CardForAllAss = ({ assignment }) => {
         </h2>
         <p className="text-stGray">{description}</p>
         <div className="flex justify-between w-full">
-          <span>Marks: {marks}</span>
-          <span>Date: {dueDate}</span>
+          <span className="font-semibold">Marks: {marks}</span>
         </div>
 
         <div className="flex justify-between">
-          <Link to={"/view-assignment"}>
+          <Link to={`/view-assignment/${_id}`}>
             <button className="btn bg-stPrimary text-white hover:text-stBlack">
               View <AiOutlineEye />
             </button>
