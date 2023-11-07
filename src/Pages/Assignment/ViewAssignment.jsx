@@ -29,15 +29,11 @@ const ViewAssignment = () => {
             {level}
           </p>{" "}
           <p>{description}</p>
-          <span className="font-semibold">
-            Creator Email: {user && user.email}
-          </span>
         </div>
-        <div className="flex justify-between w-full">
-          <span className="font-semibold">Marks: {marks}</span>
-          <span className="font-semibold">
-            Created at: {dueDate && assignment.date}
-          </span>
+        <div>
+          <p>Created at: {dueDate && assignment.date}</p>
+          <p>Creator Email: {user && user.email}</p>
+          <p className="font-semibold">Total Marks: {marks}</p>
         </div>
         <div className="card-actions justify-center mt-5">
           {/* Open the modal using document.getElementById('ID').showModal() method */}

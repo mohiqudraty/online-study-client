@@ -31,7 +31,7 @@ const CreateAssignment = () => {
     onSuccess: () => {
       toast.success("Assignment Creation Successful");
       queryClient.invalidateQueries("createAssignment");
-      // navigate("/all-assignment");
+      navigate("/all-assignment");
     },
     onError: (error) => {
       // An error happened!

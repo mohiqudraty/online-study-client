@@ -1,9 +1,10 @@
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
   const { loginUser } = useAuth();
+  const navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -16,6 +17,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("Login Success!", { id: toastId });
+        navigate('/')
       })
       .catch((err) => {
         console.log(err.message);

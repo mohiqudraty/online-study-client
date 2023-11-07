@@ -5,7 +5,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxios from "../../Hooks/useAxios";
 import toast from "react-hot-toast";
-
+import { AiOutlineDelete } from "react-icons/ai";
+import { BsPencilSquare } from "react-icons/bs";
 import useAuth from "../../Hooks/useAuth";
 
 const UpdateAssignment = () => {
@@ -26,6 +27,7 @@ const UpdateAssignment = () => {
     dueDate,
   } = assignment || {};
 
+  // update assignment here -----------
   const handleUpdateAssignment = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -38,7 +40,7 @@ const UpdateAssignment = () => {
     console.log(title, photo, description, marks, level, dueDate);
     // console.log(authUser, user);
     if (creator?.email !== user?.email) {
-      return toast(
+      return toast.error(
         "👉You can not Update this assignment. only he/se can update  assignment \n who has created"
       );
     }
@@ -60,6 +62,23 @@ const UpdateAssignment = () => {
         navigate("/all-assignment");
       } else {
         toast.error("Not change Anything");
+      }
+    });
+  };
+
+  // delete assignment here ------------------------
+  const handleDelete = () => {
+    if (creator?.email !== user?.email) {
+      return toast.error(
+        "👉You can not Delete this assignment. only he/se can Delete  assignment \n who has created"
+      );
+    }
+
+    instance.delete(`/api/v1/all-assignment/${_id}`).then((res) => {
+      console.log(res.data);
+      if (res.data.deletedCount > 0) {
+        toast.success("Assignment Deletion Success!");
+        navigate("/all-assignment");
       }
     });
   };
@@ -186,15 +205,23 @@ const UpdateAssignment = () => {
             </label>
           </div>
         </div>
-        <div className="text-center px-5">
+        <div className="px-5 text-center">
           <button
             type="submit"
             className="text-white bg-stSecondary hover:bg-stPrimary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-stPrimary dark:hover-bg-blue-700 dark:focus-ring-stPrimary"
           >
-            Update Assignment
+            <BsPencilSquare className="inline" /> Update Assignment
           </button>
         </div>
       </form>
+      <div className="px-5 text-center my-5">
+        <button
+          onClick={handleDelete}
+          className="text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-700 dark:hover-bg-blue-700 dark:focus-ring-bg-red-700"
+        >
+          <AiOutlineDelete className="inline" /> Delete Assignment
+        </button>
+      </div>
     </div>
   );
 };
