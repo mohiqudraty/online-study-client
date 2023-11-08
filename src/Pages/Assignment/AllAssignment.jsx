@@ -16,7 +16,7 @@ const AllAssignment = () => {
   const urlWithQuery = `/api/v1/all-assignment?level=${level}`;
   useEffect(() => {
     instance.get(urlWithQuery).then((res) => {
-      setAssignmentsWithLevel(res.data);
+      setAssignmentsWithLevel(res?.data);
     });
   }, [instance, urlWithQuery, level]);
 
@@ -31,14 +31,14 @@ const AllAssignment = () => {
     queryKey: ["all-assignment"],
     queryFn: async () => {
       const response = await instance.get(url);
-      const data = await response.data;
+      const data = await response?.data;
       return data;
     },
     retry: 3,
   });
   // end fetch all assignment-------------
   if (isLoading) return <Loader></Loader>;
-  if (isError) return toast.error(error.message);
+  if (isError) return toast.error(error?.message);
 
   return (
     <div>
@@ -73,14 +73,14 @@ const AllAssignment = () => {
       </div>
       {/* all assignment card  */}
       <div className="grid md:grid-cols-2  gap-10 px-10 my-10">
-        {assignmentsWithLevel.length
-          ? assignmentsWithLevel.map((assignment) => (
+        {assignmentsWithLevel?.length
+          ? assignmentsWithLevel?.map((assignment) => (
               <CardForAllAss
                 key={assignment._id}
                 assignment={assignment}
               ></CardForAllAss>
             ))
-          : assignments.map((assignment) => (
+          : assignments?.map((assignment) => (
               <CardForAllAss
                 key={assignment._id}
                 assignment={assignment}

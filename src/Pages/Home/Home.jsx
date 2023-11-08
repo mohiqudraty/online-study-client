@@ -13,7 +13,7 @@ const Home = () => {
   // data fetch for faq section----
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/v1/faq")
+      .get("https://study-online-school-server.vercel.app/api/v1/faq")
       .then((res) => {
         setFaqs(res.data);
       })
@@ -23,7 +23,7 @@ const Home = () => {
   // data fetch for features section----
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/v1/features")
+      .get("https://study-online-school-server.vercel.app/api/v1/features")
       .then((res) => {
         setFeatures(res.data);
       })

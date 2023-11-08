@@ -1,8 +1,10 @@
-# React + Vite
+## Project Features
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- any one can se all assignment and web features faq,
+- any login user can create assignment
+- assignment delete and update can a user who was created
+- user can take assignment
+- after taking assignment then assignment will store on submitted page and pending for marking
+- user can see all assignment on my assignment page which assignment he/she take.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+live website: https://coffee-store-front.web.app/

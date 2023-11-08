@@ -21,7 +21,7 @@ const Login = () => {
       })
       .catch((err) => {
         console.log(err.message);
-        toast.error("Please Provide Valid Email & Password");
+        toast.error("Please Provide Valid Email & Password", { id: toastId });
       });
   };
   return (

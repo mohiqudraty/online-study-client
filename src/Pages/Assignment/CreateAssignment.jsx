@@ -25,7 +25,7 @@ const CreateAssignment = () => {
   } = useMutation({
     mutationFn: (assignment) => {
       return axios.post(
-        "http://localhost:5000/api/v1/all-assignment",
+        "https://study-online-school-server.vercel.app/api/v1/all-assignment",
         assignment
       );
     },
@@ -72,7 +72,7 @@ const CreateAssignment = () => {
 
   return (
     <div className="lg:mb-20">
-       <Helmet>
+      <Helmet>
         <title>Study Online || Create Assignment</title>
       </Helmet>
       <div className="text-center text-3xl md:text-4xl lg:5xl mt-5 ">

@@ -26,7 +26,7 @@ const ViewAssignment = () => {
   } = useMutation({
     mutationFn: (assignment) => {
       return axios.post(
-        "http://localhost:5000/api/v1/submit-assignment",
+        "https://study-online-school-server.vercel.app/api/v1/submit-assignment",
         assignment
       );
     },
