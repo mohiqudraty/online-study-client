@@ -4,7 +4,7 @@ import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
   const { loginUser } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -17,10 +17,11 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("Login Success!", { id: toastId });
-        navigate('/')
+        navigate("/");
       })
       .catch((err) => {
         console.log(err.message);
+        toast.error("Please Provide Valid Email & Password");
       });
   };
   return (

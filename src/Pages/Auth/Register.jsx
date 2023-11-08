@@ -10,13 +10,30 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    const toastId = toast.loading("Loading...");
+
     const form = e.target;
     const name = form.name.value;
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, photo, email, password);
+
+    if (password.length < 6) {
+      return toast.error("password should be 6 character");
+    }
+
+    const hasCapitalLetter = /(?=.*?[A-Z])/.test(password);
+    const hasSpecialCharacter = /(?=.*?[#?!@$%^&*-])/.test(password);
+
+    if (!hasCapitalLetter) {
+      toast.error("Password must contain one uppercase letter.");
+      return;
+    }
+    if (!hasSpecialCharacter) {
+      toast.error("Password must contain one special character");
+      return;
+    }
+    const toastId = toast.loading("Loading...");
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
@@ -29,7 +46,15 @@ const Register = () => {
             toast.success("User Registration Success", { id: toastId });
             navigate("/");
           })
-          .catch((err) => console.log(err.message));
+          .catch((err) => {
+            toast.success(
+              `already hav an account Please login${err.message} `,
+              {
+                id: toastId,
+              }
+            );
+            navigate("/login");
+          });
       })
       .catch((err) => {
         console.log(err.message);
@@ -40,6 +65,7 @@ const Register = () => {
     registerWithGoogle()
       .then((result) => {
         console.log(result.user);
+        toast.success("Google SignIn Success");
         navigate("/");
       })
       .catch((err) => console.log(err.message));
