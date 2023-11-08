@@ -3,7 +3,6 @@ import Root from "../Layout/Root";
 import Home from "../Pages/Home/Home";
 import Register from "../Pages/Auth/Register";
 import Login from "../Pages/Auth/Login";
-import AssignmentForm from "../Components/AssignmentForm";
 import AllAssignment from "../Pages/Assignment/AllAssignment";
 import CreateAssignment from "../Pages/Assignment/CreateAssignment";
 import UpdateAssignment from "../Pages/Assignment/UpdateAssignment";
@@ -12,7 +11,7 @@ import ViewAssignment from "../Pages/Assignment/ViewAssignment";
 import Error from "../Components/Error";
 import PrivetRoute from "./PrivetRoute";
 import Submitted from "../Pages/Assignment/Submitted";
-import GiveMark from "../Pages/Assignment/GiveMark";
+import MyAssignment from "../Pages/Assignment/MyAssignment";
 
 const router = createBrowserRouter([
   {
@@ -65,14 +64,12 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "give-mark-assignment",
+        path: "my-assignment",
         element: (
           <PrivetRoute>
-            <GiveMark></GiveMark>
+            <MyAssignment></MyAssignment>
           </PrivetRoute>
         ),
-        // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/api/v1/single-assignment/${params._id}`),
       },
     ],
   },
@@ -83,10 +80,6 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login></Login>,
-  },
-  {
-    path: "/ass",
-    element: <AssignmentForm></AssignmentForm>,
   },
 ]);
 

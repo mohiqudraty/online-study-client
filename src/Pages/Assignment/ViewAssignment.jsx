@@ -5,6 +5,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Loader from "../../Components/Loader/Loader";
+import { Helmet } from "react-helmet-async";
 
 const ViewAssignment = () => {
   const { user: authUser } = useAuth();
@@ -50,6 +51,7 @@ const ViewAssignment = () => {
       pdf,
       note,
       user: authUser,
+      email: authUser.email,
       status: "pending",
       title,
       marks,
@@ -68,6 +70,9 @@ const ViewAssignment = () => {
 
   return (
     <div className="card lg:w-3/4 mx-auto p-5  bg-base-100 shadow-xl">
+      <Helmet>
+        <title>Study Online || View Details</title>
+      </Helmet>
       <figure>
         <img className="h-96 w-full object-cover " src={photo} alt="Shoes" />
       </figure>
@@ -99,7 +104,10 @@ const ViewAssignment = () => {
         >
           Take Assignment
         </button>
-        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <dialog
+          id="my_modal_5"
+          className="modal modal-bottom px-4 sm:modal-middle"
+        >
           <div className="modal-box">
             <form onSubmit={handleSubmit}>
               <div className="text-center ">

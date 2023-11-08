@@ -8,6 +8,8 @@ import toast from "react-hot-toast";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs";
 import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const UpdateAssignment = () => {
   const [date, setDate] = useState(new Date());
@@ -73,18 +75,36 @@ const UpdateAssignment = () => {
         "👉You can not Delete this assignment. only he/se can Delete  assignment \n who has created"
       );
     }
-
-    instance.delete(`/api/v1/all-assignment/${_id}`).then((res) => {
-      console.log(res.data);
-      if (res.data.deletedCount > 0) {
-        toast.success("Assignment Deletion Success!");
-        navigate("/all-assignment");
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        instance.delete(`/api/v1/all-assignment/${_id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.deletedCount > 0) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your Assignment has been deleted.",
+              icon: "success",
+            });
+            navigate("/all-assignment");
+          }
+        });
       }
     });
   };
 
   return (
     <div className="lg:mb-20">
+      <Helmet>
+        <title>Study Online || Update</title>
+      </Helmet>
       <div className="text-center text-3xl md:text-4xl lg:5xl mt-5 ">
         <span className="border-b-4 font-bold text-stBlack">
           Update Assignment

@@ -248,7 +248,7 @@ const Header = () => {
                   <NavLink
                     className={({ isActive }) =>
                       isActive
-                        ? "py-y px-3 font-semibold rounded-md bg-stSecondary hover:bg-stPrimary "
+                        ? "py-2 px-3 rounded-md bg-stSecondary hover:bg-stPrimary text-white "
                         : "hover:bg-gray-500 p-2 font-semibold rounded-md"
                     }
                     to={"/my-assignment"}
@@ -258,7 +258,7 @@ const Header = () => {
                 </p>
 
                 <button onClick={handleLogout}>
-                  <Link className="bg-stSecondary text-white hover:bg-stPrimary font-semibold   hover:text-white p-3  rounded-md">
+                  <Link className="bg-red-500 text-white hover:bg-stPrimary font-semibold   hover:text-white p-3 rounded-md">
                     {" "}
                     <RiLogoutBoxRLine className="inline" /> Logout
                   </Link>

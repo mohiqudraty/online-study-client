@@ -8,6 +8,7 @@ import Loader from "../../Components/Loader/Loader";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
+import { Helmet } from "react-helmet-async";
 
 const CreateAssignment = () => {
   const [date, setDate] = useState(new Date());
@@ -71,6 +72,9 @@ const CreateAssignment = () => {
 
   return (
     <div className="lg:mb-20">
+       <Helmet>
+        <title>Study Online || Create Assignment</title>
+      </Helmet>
       <div className="text-center text-3xl md:text-4xl lg:5xl mt-5 ">
         <span className="border-b-4 font-bold text-stBlack">
           Create an Assignment

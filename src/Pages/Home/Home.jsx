@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import Faq from "./Faq";
 import Features from "./Features";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [faqs, setFaqs] = useState([]);
@@ -30,6 +31,9 @@ const Home = () => {
   }, []);
   return (
     <div>
+      <Helmet>
+        <title>Study Online | Home</title>
+      </Helmet>
       {/* banner section ---------- */}
       <Banner></Banner>
       {/* features section -------- */}

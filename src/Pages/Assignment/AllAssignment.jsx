@@ -5,6 +5,7 @@ import Loader from "../../Components/Loader/Loader";
 import toast from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../Hooks/useAxios";
+import { Helmet } from "react-helmet-async";
 const AllAssignment = () => {
   const instance = useAxios();
   const [level, setLevel] = useState("Assignment difficulty");
@@ -41,6 +42,9 @@ const AllAssignment = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Study Online | All Assignment</title>
+      </Helmet>
       <div className="text-center text-3xl md:text-4xl lg:5xl mt-5">
         <span className="border-b-4 font-bold text-stBlack">
           All Assignment
