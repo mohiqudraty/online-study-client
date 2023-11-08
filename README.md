@@ -6,5 +6,6 @@
 - user can take assignment
 - after taking assignment then assignment will store on submitted page and pending for marking
 - user can see all assignment on my assignment page which assignment he/she take.
+- user can delete her assignment after getting mark
 
 live website: https://coffee-store-front.web.app/
